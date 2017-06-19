@@ -1,8 +1,8 @@
 {
-  "name": "lavas-template-basic",
+  "name": "*__name__*",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "panyuqi <panyuqi@baidu.com>",
+  "description": "*__desc__*",
+  "author": "*__author__* <*__email__*>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

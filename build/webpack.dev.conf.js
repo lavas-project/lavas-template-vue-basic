@@ -1,4 +1,9 @@
-/* eslint-disable */
+/**
+ * @file 开发环境 webpack 配置文件
+ * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
+ */
+
+/* eslint-disable no-console */
 
 var utils = require('./utils');
 var webpack = require('webpack');

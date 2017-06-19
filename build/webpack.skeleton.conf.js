@@ -1,4 +1,9 @@
-/* eslint-disable */
+/**
+ * @file skeleton webpack 配置文件
+ * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
+ */
+
+/* eslint-disable no-console */
 
 var utils = require('./utils');
 var webpack = require('webpack');
@@ -22,6 +27,6 @@ module.exports = merge(baseWebpackConfig, {
         }),
         new ExtractTextPlugin({
             filename: utils.assetsPath('css/[name].[contenthash].css')
-        }),
+        })
     ]
 });

@@ -1,8 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Hello from '@/components/Hello'
+/**
+ * @file router
+ * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
+ */
 
-Vue.use(Router)
+import Vue from 'vue';
+import Router from 'vue-router';
+import Hello from '@/components/Hello';
+
+Vue.use(Router);
 
 export function createRouter() {
 
@@ -12,9 +17,7 @@ export function createRouter() {
             if (savedPosition) {
                 return savedPosition;
             }
-            else {
-                return { x: 0, y: 0 };
-            }
+            return {x: 0, y: 0};
         },
         routes: [
             {

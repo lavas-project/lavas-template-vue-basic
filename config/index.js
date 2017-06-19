@@ -1,4 +1,7 @@
-/* eslint-disable */
+/**
+ * @file 项目所有的配置文件
+ * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
+ */
 
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path');
