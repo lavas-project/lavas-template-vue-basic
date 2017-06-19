@@ -12,6 +12,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 var SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
+var swRegisterWebpackPlugin = require('sw-register-webpack-plugin');
+var MultiPathWebpackPlugin = require('multi-path-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing'
     ? require('../config/test.env')
@@ -118,7 +120,9 @@ var webpackConfig = merge(baseWebpackConfig, {
         ]),
 
         // service worker caching
-        new SWPrecacheWebpackPlugin(config.swPrecache.build)
+        new SWPrecacheWebpackPlugin(config.swPrecache.build),
+        new SwRegisterWebpackPlugin({}),
+        new MultiPathWebpackPlugin({})
     ]
 });
 
