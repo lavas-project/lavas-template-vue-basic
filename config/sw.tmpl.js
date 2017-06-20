@@ -6,6 +6,8 @@
  *
  */
 
+/* eslint-disable */
+
 'use strict';
 
 var precacheConfig = <%= precacheConfig %>;
