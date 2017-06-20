@@ -17,7 +17,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 var SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
-var SwRegisterWebpackPlugin = require('sw-register-webpack-plugin');
+var SwRegisterWebpackPlugin = require('../../plugins/sw-register-webpack-plugin/dist/index');
 var MultiPathWebpackPlugin = require('multi-path-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing'
