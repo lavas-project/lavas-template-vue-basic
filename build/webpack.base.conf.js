@@ -35,12 +35,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // inject skeleton route in dev mode
-            // {
-            //     resource: resolve('src/router.js'),
-            //     loader: 'router-loader',
-            //     enforce: 'pre'
-            // },
             {
                 test: /\.vue$/,
                 use: [
@@ -73,10 +67,4 @@ module.exports = {
             }
         ]
     }
-    // ,
-    // resolveLoader: {
-    //     alias: {
-    //         'router-loader': path.join(__dirname, './loaders/router-loader')
-    //     }
-    // }
 };

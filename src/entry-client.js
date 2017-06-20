@@ -3,6 +3,7 @@
  * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
  */
 
+import 'es6-promise/auto';
 import FastClick from 'fastclick';
 import {createApp} from './app';
 
