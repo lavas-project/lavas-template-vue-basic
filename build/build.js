@@ -42,5 +42,9 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), function
             + '  Tip: built files are meant to be served over an HTTP server.\n'
             + '  Opening index.html over file:// won\'t work.\n'
         ));
+
+        if (!process.env.npm_config_report) {
+            process.exit();
+        }
     });
 });
