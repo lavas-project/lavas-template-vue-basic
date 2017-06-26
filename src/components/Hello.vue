@@ -4,7 +4,7 @@
         <h4 class="gray--text">[ˈlɑ:vəz]</h4>
 
         <ul>
-            <li><a href="https://github.baidu.com/lavas-project">Lavas Github</a></li>
+            <li><a href="https://github.com/lavas-project">Lavas Github</a></li>
             <li><a href="https://lavas.baidu.com">Lavas 官网</a></li>
         </ul>
     </div>
