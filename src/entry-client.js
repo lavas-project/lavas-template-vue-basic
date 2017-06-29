@@ -9,8 +9,6 @@ import {createApp} from './app';
 
 FastClick.attach(document.body);
 
-const {app, router} = createApp();
+let {app, router} = createApp();
 
-router.onReady(() => {
-    app.$mount('#app');
-});
+router.onReady(() => app.$mount('#app'));
