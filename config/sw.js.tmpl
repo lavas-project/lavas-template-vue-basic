@@ -216,10 +216,11 @@ self.addEventListener('activate', function(event) {
             // cahceStorage includes some caches of this page，the 'updateMessage' will be casted.
             if (!firstRegister) {
                 return self.clients.matchAll()
-                    .then(function (clients) {
+                    .then(function(clients) {
                         if (clients && clients.length) {
-                            var currentClient = clients[0];
-                            currentClient.postMessage('updateMessage');
+                            clients.forEach(function(client) {
+                                client.postMessage('sw.update');
+                            })
                         }
                     })
             }
@@ -283,6 +284,7 @@ self.addEventListener('fetch', function(event) {
     }
 });
 
+
 <% if (swToolboxCode) { %>
 // *** Start of auto-included sw-toolbox code. ***
 <%= swToolboxCode %>
@@ -298,3 +300,6 @@ self.addEventListener('fetch', function(event) {
 <% if (importScripts) { %>
 importScripts(<%= importScripts %>);
 <% } %>
+
+/* eslint-enable */
+
