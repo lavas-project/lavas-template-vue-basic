@@ -24,6 +24,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), function
     if (err) {
         throw err;
     }
+
     webpack(webpackConfig, function (err, stats) {
         spinner.stop();
         if (err) {

@@ -83,6 +83,7 @@ var webpackConfig = merge(baseWebpackConfig, {
                 // https://github.com/kangax/html-minifier#options-quick-reference
             },
             favicon: utils.assetsPath('img/icons/favicon.ico'),
+
             // necessary to consistently work with multiple chunks via CommonsChunkPlugin
             chunksSortMode: 'dependency'
         }),
@@ -91,6 +92,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module, count) {
+
                 // any required modules inside node_modules are extracted to vendor
                 return (
                     module.resource
