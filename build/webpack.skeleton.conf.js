@@ -3,13 +3,14 @@
  * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
  */
 
-/* eslint-disable no-console */
-var webpack = require('webpack');
-var config = require('../config');
-var merge = require('webpack-merge');
-var baseWebpackConfig = require('./webpack.base.conf');
-var nodeExternals = require('webpack-node-externals');
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+'use strict';
+
+const webpack = require('webpack');
+const config = require('../config');
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.base.conf');
+const nodeExternals = require('webpack-node-externals');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(baseWebpackConfig, {
     target: 'node',

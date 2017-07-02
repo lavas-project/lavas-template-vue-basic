@@ -3,9 +3,11 @@
  * @author *__ author __*{% if: *__ email __* %}(*__ email __*){% /if %}
  */
 
+'use strict';
+
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path');
-var swPrecacheConfig = require('./sw-precache');
+const path = require('path');
+const swPrecacheConfig = require('./sw-precache');
 
 module.exports = {
     swPrecache: swPrecacheConfig,

@@ -4,35 +4,38 @@
  */
 
 /* eslint-disable no-console */
+
+'use strict';
+
 require('./check-versions')();
-var config = require('../config');
+const config = require('../config');
 
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 }
 
-var opn = require('opn');
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var proxyMiddleware = require('http-proxy-middleware');
-var webpackConfig = require('./webpack.dev.conf');
+const opn = require('opn');
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const proxyMiddleware = require('http-proxy-middleware');
+const webpackConfig = require('./webpack.dev.conf');
 
 // 默认调试服务器端口
-var port = process.env.PORT || config.dev.port;
+let port = process.env.PORT || config.dev.port;
 
 // 启动调试服务器时是否自动打开浏览器，默认为 false
-var autoOpenBrowser = !!config.dev.autoOpenBrowser;
+let autoOpenBrowser = !!config.dev.autoOpenBrowser;
 
-var app = express();
-var compiler = webpack(webpackConfig);
+let app = express();
+let compiler = webpack(webpackConfig);
 
-var devMiddleware = require('webpack-dev-middleware')(compiler, {
+let devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
     quiet: true
 });
 
-var hotMiddleware = require('webpack-hot-middleware')(compiler, {
+let hotMiddleware = require('webpack-hot-middleware')(compiler, {
     log: function () {}
 });
 
@@ -47,11 +50,11 @@ compiler.plugin('compilation', function (compilation) {
 });
 
 // 指定需要代理的请求列表
-var proxyTable = config.dev.proxyTable;
+let proxyTable = config.dev.proxyTable;
 
 // 代理请求
 Object.keys(proxyTable).forEach(function (context) {
-    var options = proxyTable[context];
+    let options = proxyTable[context];
     if (typeof options === 'string') {
         options = {
             target: options
@@ -70,13 +73,13 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 // 纯静态资源服务
-var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
+let staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
-var uri = 'http://localhost:' + port;
+let uri = 'http://localhost:' + port;
 
-var newResolve;
-var readyPromise = new Promise(function (resolve) {
+let newResolve;
+let readyPromise = new Promise(function (resolve) {
     newResolve = resolve;
 });
 
@@ -92,7 +95,7 @@ devMiddleware.waitUntilValid(function () {
     newResolve();
 });
 
-var server = app.listen(port);
+let server = app.listen(port);
 
 module.exports = {
     ready: readyPromise,
