@@ -5,10 +5,15 @@
 
 // 注册的地址为 sw-precache-webpack-pulgin 生成的 service-worker.js 或者自己手动维护的 service worker 文件
 navigator.serviceWorker && navigator.serviceWorker.register('/service-worker.js').then(() => {
-    navigator.serviceWorker.addEventListener('message', e => {
 
-        // service-worker.js 如果更新成功会 postMessage 给页面，内容为 'sw.update'
-        if (e.data === 'sw.update') {
+    const updateChannel = new BroadcastChannel('precache-updates');
+    updateChannel.addEventListener('message', event => {
+        // ${event.data.payload} {cacheName: '', updatedUrl:''}
+        // console.log(event);
+        // console.log(event.data.payload);
+        // console.log(`Cache updated: ${event.data.payload.updatedUrl}`);
+
+        if (document.getElementsByClassName('app-refresh-show').length) {
             let dom = document.createElement('div');
             let themeColor = document.querySelector('meta[name=theme-color]');
 
@@ -28,6 +33,7 @@ navigator.serviceWorker && navigator.serviceWorker.register('/service-worker.js'
                         <span>点击刷新</span>
                     </div>
                 </div>
+            </div>
             `;
             /* eslint-enable max-len */
 
@@ -35,4 +41,7 @@ navigator.serviceWorker && navigator.serviceWorker.register('/service-worker.js'
             setTimeout(() => document.getElementById('app-refresh').className += ' app-refresh-show', 16);
         }
     });
+
 });
+
+
